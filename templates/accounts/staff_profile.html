@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+| Staff Profile
+{% endblock %}
+{% block content %}
+<div class="container-fluid py-5">
+    <div class="container">
+        <div class="row gx-5">
+            <div class="col-lg-6 mb-5 mb-lg-0">
+                <img src="{% static 'img/about.jpg' %}" height="300", width="300"> 
+            </div>
+            <div class="col-lg-4"> 
+                <div class="mb-4">
+                    <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5">Staff</h5>
+                    <h4 class="display-4">Dr. {{staff.first_name}} {{staff.last_name}}</h4>
+                </div>
+                <h4>Department: {{staff.department}}</h4>
+                <h4>Gender: {{staff.gender}}</h4>
+                <h4>Mail: {{ staff.email }}</h4>
+            </div>
+        </div>
+    </div>
+</div> 
+{% endblock %}

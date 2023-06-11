@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}
+| Add Illness
+{% endblock %}
+{% block content %}
+<!-- Alerts -->
+{% include 'partials/_alerts.html' %}
+
+<!-- Form -->
+<section id="register" class="bg-light py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mx-auto">
+          <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h4>Add Illness</h4>
+                <form action="" method = 'POST'>
+                 {% csrf_token %}
+                 {{ form|crispy }}
+                 <br>
+                 <input type="submit" value="Add" class="btn btn-secondary btn-block">
+                </form>
+                </div>
+                </div>
+        </div>
+      </div>
+    </div>
+</section>
+{% endblock %}

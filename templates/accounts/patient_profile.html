@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+| Patient Profile
+{% endblock %}
+{% block content %}
+<!-- Alerts -->
+{% include 'partials/_alerts.html' %}
+
+<div class="container-fluid py-5">
+    <div class="container">
+        <div class="row gx-5">
+            <div class="col-lg-6 mb-5 mb-lg-0">
+                <img src="{% static 'img/about.jpg' %}" height="300", width="300"> 
+            </div>
+            <div class="col-lg-4"> 
+                <div class="mb-4">
+                    <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5">Patient</h5>
+                    <h4 class="display-4">User: {{patient.first_name}} {{patient.last_name}}</h4>
+                </div>
+                <h4>Gender: {{patient.gender}}</h4>
+                <h4>Mail: {{ patient.email }}</h4>
+                <a class="btn btn-primary rounded-pill py-3 px-5 me-3" href="{% url 'add_illness' patient.pk %}"> + Illness</a>
+                <a class="btn btn-outline-primary rounded-pill py-3 px-5" href="{% url 'add_prescription' patient.pk %}"> + Prescription</a>
+            </div>
+        </div>
+    </div>
+</div> 
+
+<div class="container-fluid py-5">
+    <div class="container">
+        <h1>History of Illness: </h1>
+        {% for sickness in illnesses %}
+        <h4>{{ sickness.illness }}</h4>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="container-fluid py-5">
+    <div class="container">
+        <h1>Prescriptions: </h1>
+        {% for Prescription in Prescriptions %}
+        <h4>{{ Prescription.prescriptions }}</h4>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

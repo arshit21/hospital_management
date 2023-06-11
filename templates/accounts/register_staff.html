@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}
+ | Register Staff
+{% endblock %}
+{% block content %}
+<!-- Alerts -->
+{% include 'partials/_alerts.html' %}
+
+<!-- Form -->
+<section id="register" class="bg-light py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mx-auto">
+          <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h4>Register Staff</h4>
+                <form action="" method = 'POST'>
+                 {% csrf_token %}
+                 {{staff_form|crispy }}
+                 {{user_form|crispy }}
+                 <br>
+                 <input type="submit" value="Register" class="btn btn-secondary btn-block">
+                </form>
+                </div>
+                </div>
+        </div>
+      </div>
+    </div>
+</section>
+{% endblock %}
